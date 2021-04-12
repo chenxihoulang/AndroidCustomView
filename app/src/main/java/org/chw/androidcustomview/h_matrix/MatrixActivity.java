@@ -3,6 +3,7 @@ package org.chw.androidcustomview.h_matrix;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.widget.ImageView;
@@ -31,8 +32,8 @@ public class MatrixActivity extends BaseActivity {
         baseBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.icon_logo);
 //        bitmapTranslate(100, 100);
 //        bitmapScale(1.5F, 1.5F);
-//        bitmapXMirror();
-        bitmapYMirror();
+        bitmapXMirror();
+//        bitmapYMirror();
 //        bitmapRotate(45);
 //        bitmapSkew(1, 0);
     }
@@ -78,14 +79,24 @@ public class MatrixActivity extends BaseActivity {
     private void bitmapXMirror() {
         // 因为要将图片放大，所以要根据放大的尺寸重新创建Bitmap
         Bitmap afterBitmap = Bitmap.createBitmap(
-                baseBitmap.getWidth(),
+                (int) (baseBitmap.getWidth() * 1.5F + 200),
                 baseBitmap.getHeight(), baseBitmap.getConfig());
         Canvas canvas = new Canvas(afterBitmap);
+        canvas.drawColor(Color.GREEN);
+
+
         // 初始化Matrix对象
         Matrix matrix = new Matrix();
         // 根据传入的参数设置缩放比例
-        matrix.postScale(-1, 1);
-        matrix.postTranslate(baseBitmap.getWidth(), 0);
+//        matrix.preTranslate(200,0);
+//        matrix.preScale(1.5F, 1);
+//        matrix.postTranslate(baseBitmap.getWidth(), 0); // width((M[200,0])[1.5F,1]) M先移动图片宽度,再移动200,再x缩放1.5倍
+
+        matrix.preTranslate(200, 0);
+        //x为正数,向右缩放,x为负数,向左缩放.将这个负数带入到Matrix矩阵中,用矩阵乘法计算,原来小的x,乘以-1后,反而变大了,这样就实现了翻转
+        matrix.preScale(-1, 1);
+        matrix.postTranslate(baseBitmap.getWidth(), 0); // width((M[200,0])[-1,1]) M先移动图片宽度,再移动200,再x缩放-1倍
+
         // 根据缩放比例，把图片draw到Canvas上
         canvas.drawBitmap(baseBitmap, matrix, paint);
         ivDestImg.setImageBitmap(afterBitmap);
