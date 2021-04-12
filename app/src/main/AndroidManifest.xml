@@ -50,6 +50,9 @@
         <activity android:name=".g_gesture.G10Activity" />
         <activity android:name=".g_gesture.G11Activity" />
 
+        <!--8.matrix-->
+        <activity android:name=".h_matrix.MatrixActivity" />
+
     </application>
 
 </manifest>

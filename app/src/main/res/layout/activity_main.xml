@@ -51,6 +51,12 @@
         android:background="#2196F3"
         android:text="7.手势与速度" />
 
+    <Button
+        android:id="@+id/btn_matrix"
+        style="@style/MyBtn"
+        android:background="#2196F3"
+        android:text="8.Matrix" />
+
     <org.chw.androidcustomview.MyView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

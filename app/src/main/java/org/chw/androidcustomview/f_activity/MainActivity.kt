@@ -5,6 +5,7 @@ import org.chw.androidcustomview.BaseActivity
 import org.chw.androidcustomview.R
 import org.chw.androidcustomview.bitmap.BitmapActivity
 import org.chw.androidcustomview.g_gesture.*
+import org.chw.androidcustomview.h_matrix.MatrixActivity
 
 class MainActivity : BaseActivity() {
 
@@ -20,6 +21,7 @@ class MainActivity : BaseActivity() {
         btn_e_canvas.start(ECanvasActivity::class.java)
         btn_bitmap.start(BitmapActivity::class.java)
         btn_gesture.start(G11Activity::class.java)
+        btn_matrix.start(MatrixActivity::class.java)
     }
 
 }
