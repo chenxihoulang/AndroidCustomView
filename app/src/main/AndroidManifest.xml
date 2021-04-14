@@ -51,7 +51,12 @@
         <activity android:name=".g_gesture.G11Activity" />
 
         <!--8.matrix-->
-        <activity android:name=".h_matrix.MatrixActivity" />
+        <activity
+            android:name=".h_matrix.MatrixActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
 
     </application>
 

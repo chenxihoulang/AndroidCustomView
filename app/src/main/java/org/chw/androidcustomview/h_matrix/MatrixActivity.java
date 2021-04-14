@@ -1,12 +1,15 @@
 package org.chw.androidcustomview.h_matrix;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import org.chw.androidcustomview.BaseActivity;
 import org.chw.androidcustomview.R;
@@ -20,6 +23,8 @@ public class MatrixActivity extends BaseActivity {
     private Bitmap baseBitmap;
     private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
+    private TextView tvTip, tvClose;
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_matrix;
@@ -28,6 +33,9 @@ public class MatrixActivity extends BaseActivity {
     @Override
     public void init() {
         ivDestImg = findViewById(R.id.ivDestImg);
+        tvTip = findViewById(R.id.tvTip);
+        tvClose = findViewById(R.id.tvClose);
+        tvTip.setText("" + System.currentTimeMillis());
 
         baseBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.icon_logo);
 //        bitmapTranslate(100, 100);
@@ -36,6 +44,21 @@ public class MatrixActivity extends BaseActivity {
 //        bitmapYMirror();
 //        bitmapRotate(45);
 //        bitmapSkew(1, 0);
+
+        tvTip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MatrixActivity.this, MatrixActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        tvClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MatrixActivity.this.finish();
+            }
+        });
     }
 
     /**
