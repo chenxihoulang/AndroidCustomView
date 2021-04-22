@@ -57,6 +57,12 @@
         android:background="#2196F3"
         android:text="8.Matrix" />
 
+    <Button
+        android:id="@+id/btnLifeCycle"
+        style="@style/MyBtn"
+        android:background="#2196F3"
+        android:text="9.生命周期" />
+
     <org.chw.androidcustomview.MyView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

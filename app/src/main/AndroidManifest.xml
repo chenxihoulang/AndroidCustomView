@@ -58,6 +58,11 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
 
+        <!--9.生命周期-->
+        <activity
+            android:name=".i_lifecycle.LifeCycleActivity1"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".i_lifecycle.LifeCycleActivity2" />
     </application>
 
 </manifest>

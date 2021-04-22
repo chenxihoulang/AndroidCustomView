@@ -6,6 +6,7 @@ import org.chw.androidcustomview.R
 import org.chw.androidcustomview.bitmap.BitmapActivity
 import org.chw.androidcustomview.g_gesture.*
 import org.chw.androidcustomview.h_matrix.MatrixActivity
+import org.chw.androidcustomview.i_lifecycle.LifeCycleActivity1
 
 class MainActivity : BaseActivity() {
 
@@ -22,6 +23,7 @@ class MainActivity : BaseActivity() {
         btn_bitmap.start(BitmapActivity::class.java)
         btn_gesture.start(G11Activity::class.java)
         btn_matrix.start(MatrixActivity::class.java)
+        btnLifeCycle.start(LifeCycleActivity1::class.java)
     }
 
 }
