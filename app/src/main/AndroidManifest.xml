@@ -63,6 +63,9 @@
             android:name=".i_lifecycle.LifeCycleActivity1"
             android:configChanges="orientation|screenSize" />
         <activity android:name=".i_lifecycle.LifeCycleActivity2" />
+        <activity
+            android:name=".i_lifecycle.TranslucentActivity"
+            android:theme="@style/myTransparent" />
     </application>
 
 </manifest>

@@ -19,13 +19,18 @@ class LifeCycleActivity1 : BaseActivity() {
     }
 
     private lateinit var btnNav: Button
+    private lateinit var btnNavTranslucent: Button
     override fun getLayoutId() = R.layout.activity_lifecycle1
 
     override fun init() {
         btnNav = findViewById(R.id.btnNav)
+        btnNavTranslucent = findViewById(R.id.btnNavTranslucent)
 
         btnNav.setOnClickListener {
             startActivity(Intent(this, LifeCycleActivity2::class.java))
+        }
+        btnNavTranslucent.setOnClickListener {
+            startActivity(Intent(this, TranslucentActivity::class.java))
         }
     }
 
@@ -74,7 +79,7 @@ class LifeCycleActivity1 : BaseActivity() {
         val currentTime = System.currentTimeMillis()
         Log.e(TAG, "onSaveInstanceState:$currentTime")
 
-        outState.putLong(SAVE_KEY,currentTime)
+        outState.putLong(SAVE_KEY, currentTime)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
